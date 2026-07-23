@@ -1,0 +1,65 @@
+---
+title: "Camp Map"
+date: "23-07-26"
+output: html_document
+---
+
+# Welcome!
+
+This webpage contains an interactive map of Camp Half-Blood, the training camp for Greek demigods from the Percy Jackson series. Satellite imagery is used as a backdrop to visualize the camp's imagined layout on Long Island, New York.
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(leaflet)
+```
+
+# Camp Half-Blood
+
+```{r}
+leaflet() %>%
+  addProviderTiles("Esri.WorldImagery") %>%
+  setView(lng = -72.190, lat =40.991, zoom = 15)%>%
+  addMarkers(lng = -72.1915, lat = 40.9915,
+             popup = "<b>Cabin Area</b><br>Where the children of the Greek gods live.") %>%
+  
+  addMarkers(
+    lng = -72.1870, lat = 40.9883,
+    popup = "<b>Thalia's Pine</b><br>A daughter of Zues changed into a tree, protects the camp's borders."
+  ) %>%
+
+  addMarkers(
+    lng = -72.1928, lat = 40.9898,
+    popup = "<b>The Arena</b><br>A training ground for sword fighting and combat practice."
+  ) %>%
+  
+  addMarkers(
+    lng = -72.1882, lat = 40.9885,
+    popup = "<b>The Big House</b><br>The home of Chiron and the camp's main headquarters."
+  ) %>%
+
+  addMarkers(
+    lng = -72.1895, lat = 40.9905,
+    popup = "<b>Dining Pavilion</b><br>Campers gather here for every meal and offer food to the gods."
+  ) %>%
+
+  addMarkers(
+    lng = -72.1910, lat = 40.9887,
+    popup = "<b>Strawberry Fields</b><br>The camp's famous strawberry fields that help fund its operations."
+  ) %>%
+
+  addMarkers(
+    lng = -72.1930, lat = 40.9929,
+    popup = "<b>Pegasus Stables</b><br>Home to the camp's winged horses."
+  ) %>%
+
+  addMarkers(
+    lng = -72.1945, lat = 40.9958,
+    popup = "<b>The North Woods</b><br>May house monsters of different sizes, approach at one's risk."
+  ) %>%
+
+  addMarkers(
+    lng = -72.1875, lat = 40.9940,
+    popup = "<b>Climbing Wall</b><br>A magical climbing wall that erupts with lava to make training more challenging!"
+  )
+```
+```
